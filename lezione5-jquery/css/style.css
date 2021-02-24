@@ -1,0 +1,25 @@
+.hot{
+    color:red
+
+}
+
+.cold{
+    color:blue
+}
+
+.valid{
+    color:blueviolet
+}
+
+.pulsante{
+
+    width: 5px;
+    height: 5px;
+    border:1px solid black;
+    
+
+}
+
+#preferito{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

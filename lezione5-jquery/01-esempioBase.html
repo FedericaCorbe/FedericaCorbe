@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <h1 id= "titolo">Lista della spesa </h1>
+        
+   
+    
+    <ul>
+        <li id="uno" class="hot">Pane</li>
+        <li id="due" class="cold">Insalata
+            <p>con tonno</p>
+        </li>
+        <li id="tre" class="hot">Carne</li>
+        <li id="quattro" class="cold">Latte</li>
+        <li id="cinque" class="hot">Nutella</li>
+        
+    </ul>
+
+    <button >Clicca</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type= "text/javascript">
+    'use strict'
+
+    //document.querySelector('#titolo')
+    $("#titolo").addClass('cold');
+    //così aggiungo la classe hot all'h1
+
+
+    $(':header').addClass('hot');    
+    //questo seleziona tutti gli elementi header
+    
+    $('li:lt(2)').hide().fadeIn(2000);
+    //seleziona gli elementi in lista fino alla pos 2 e li fa fadeare in 2000ms
+
+    $('li').css('font-size', '60px');
+    //cambia dimensione del font a tutti gli elementi in lista 
+
+    $('li').on('click', function(){
+        $(this).remove();
+    });
+
+    //$('li').addClass('valid');
+    //$('li').addClass('pulsante');
+
+    $('li.hot').css('font-size', '80px');
+
+    //sintassi CSS * # . el
+
+    //SELETTORI GERARCHICI
+    //$('ul>li').addClass('blue');
+    //ul>li sta ad indicare di selezionare tutti i figli di UL
+
+    //$('ul#due+li').addClass('hot');
+
+    //METODO READY
+    $('document').ready(function(){
+
+        $('button').delay(5000).click(function(){
+            $('ul').hide().slideDown();
+            //$('ul').fadeOut(2500);
+            $('ul').hide().delay(1000).fadeIn(2000);
+        })
+    //tantaroba
+    })
+
+    //ABBREVIAZIONE MET READY
+    $(function(){
+
+    })
+
+    //RECUPERO PARTI DI HTML
+    $(function(){
+        var $lista= $('ul').html(); //legge-scrive l'html
+        console.log($lista);
+        $('ul').append($lista);
+    });
+
+    $(function(){
+        var $listaTxt = $('ul').text();
+        console.log($listaTxt);
+
+    });
+
+    $(function(){
+        // var $listaLi = $('li').html();
+        // console.log($listaLI);
+
+        // $('li').append("Ciao Da Mario");
+
+        // var $listaLi = $('li').text();
+        // cosole.log($listaLi);
+        // $('button').append("Sommario :" + $listaLi);
+
+    })
+
+    $(function(){
+        $('li:contains("Pasta")').text('Pizza').addClass("cold");
+        $('li.hot').html(function(){
+            return '<strong>' + $(this).text + '</strong>';
+        });
+        //$('li#uno').remove(); 
+        $('ul').before('<p>  Appena aggiornati</p>');
+        $('li.hot').prepend('OK');
+
+        var $option = $('<p> disponibile anche gluten free </p');
+        $('li:last').append($option)   
+
+        var $carne = $('<li> carne</li>')
+        $('li:last').after($carne)
+    });
+
+    //manipolazione attributi
+    $(function() {
+        $('li#tre').removeClass('hot')
+        $('ul').attr('id', 'preferito')
+    })
+
+    $(function() {
+        $('li').css ({
+            'background-color' : 'green',
+            'border' : '1px solid black',
+            'pudding-left':'100px'
+        })
+    })
+
+    $(function() {
+        $('li').each(function(){
+            var idSelezionati = this.id;
+            $(this).append('<span> hai selezionato lo id' + idSelezionati + '</span>')
+        })
+    })
+
+    
+
+
+    </script>
+
+
+</body>
+</html>

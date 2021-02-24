@@ -1,0 +1,15 @@
+ul .fa-trash, .fa.pen{ 
+    position: absolute;
+    cursor: pointer;
+}
+
+ul .fa-trash{
+    right: 20px;
+    color:red;
+}
+
+ul .fa-pen{
+    right: 15px;
+    color: blue;
+}
+
