@@ -21,42 +21,57 @@
   <h1> To do List</h1>
 
   <div class="container">
-    <input type="text" id="input" placeholder="inserisci azione">
-    <input type="button" onclick="inserisciAzione()" value="aggiungi">
+    <input type="text" id="input" placeholder="inserisci azione">    
+    <input type="button"  value="aggiungi">
     <ul></ul>
+    
   </div>
 
-  <div id="demo"></div>
+  
 
   <script type="text/javascript">
     $(document).ready(function () {
       $('#input').change(function () {
         var input = $(this).val();
-        $('ul').append('<li>' + input + '<i class="fas fa-trash"></i> <i class="fas fa-pen"></i></li>');
-        $(this).val('');
+        $('ul').append('<li>' + input + '<i class="fas fa-trash"></i> <i class="fas fa-pen"></i><i class="fas fa-check"></i></li>');
+        $(this).val('');        
       })
 
       $('ul').on('click', '.fa-trash', function () {
         $(this).parent('li').fadeOut(200);
       })
+      
+      
 
-      // if (this.checked) {
-      // $(this).next(".input").css("text-decoration-line", "line-through");
-      // } else {
-      // $(this).next(".input").css("text-decoration-line", "none");
-      $(function(){
-        if(li.checked) {
-          $('li').css ({
-           'text-decoration-line' : 'line-through'
-         })
-        }else{
-           $('li').css ({
-            'text-decoration-line' : 'none'
+      $('ul').on('click', '.fa-pen', function () {
+        $(this).parent('li').append($('<input type = "text" id="text">' ));
+        $('#text').on('keyup', function(event){
+          if(event.keyCode==13 )  {
+          var testo= $('#text').val();
+         $(this).parent('li').text(testo);     
 
-          })
         }
+        })  
+       
+        $('ul').on('click', '.fa-check', function(){
+          $(this).parent('li').toggleClass(checked)
+        })
+
         
       })
+
+      
+
+
+     
+
+      
+
+
+
+      
+      
+
 
 
 
