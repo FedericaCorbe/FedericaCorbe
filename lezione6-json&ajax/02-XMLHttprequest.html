@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id="demo"></div>
+
+    <script type="text/javascript">
+
+     const url = "data/studenti.txt"
+
+     var xmlhttp = new XMLHttpRequest();
+     //open -->prepara la richiesta, true -> asincrona, false-> sincrona
+     xmlhttp.open("GET", url,true)
+     xmlhttp.send()
+     xmlhttp.onreadystatechange=function(){
+       if(this.status == 200 && this.readyState==4) {
+           console.log(xmlhttp.responseText);
+           var mioObj = JSON.parse(this.responseText)
+           console.log(mioOBJ);
+           demo.innerHTML = mioObj.nome + " " + mioObj.cognome
+       }  
+     }
+
+     //metodo fetch
+     var myData = []
+     fetch(url)
+         .then(data => {return data.json})
+         .then(res => {
+             this.myData.push(res)
+             console.log(res);
+            }) 
+            
+         
+         
+            console.log(myData);
+
+       var myData='';
+       
+       fetch (url)
+          .then(data=>{ return data.json()})
+          .then (res =>{
+              this.data.push(res)
+          })
+
+
+          console.log(myData);
+
+    
+
+   
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+    "nome":"dario",     
+    "cognome":"mennillo",
+    "eta":31,
+    "materie":["js", "jquery","angular"]
+}

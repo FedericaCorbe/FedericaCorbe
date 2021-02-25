@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+     //oggetto in js
+     var utente={
+         nome:"dario",
+         cognome:"mennillo",
+         eta:31
+     }
+
+     //notazione intermedia
+     var studente={
+         "nome": "tommaso",
+         "cognome" : "angeli",
+         "eta" : "21"
+     }
+
+     //metodi per trasformare ogg in stringhe 
+     var utenteSTR = JSON.stringify(utente);
+     console.log(utenteSTR);
+     console.log(typeof utenteSTR);
+
+     var studenteJSON = '{"nome": "rebecca", "cognome": "ghergo", "eta" : 24, "zaino":["astuccio", "pc", "libri"]}'
+     document.write(studenteJSON)
+
+
+     //trasformo un oggetto cioè il JSON, on obj  che js sa manipolare
+     var studenteOBJ = JSON.parse(studenteJSON)
+
+     document.write("<br>la stundessa si chiama:" + studenteOBJ.nome)
+     var oggZaino = '';
+     for(var i = 0; i<studenteOBJ.zaino.length; i++){
+         oggZaino += '<li>' + studenteOBJ.zaino[i] + '</li>'
+
+     }
+     document.write("<br>va a lezione con il suo zaino: "+ oggZaino)
+    
+    
+    </script>
+</body>
+</html>
