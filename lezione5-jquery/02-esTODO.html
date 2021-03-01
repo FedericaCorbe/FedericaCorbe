@@ -18,11 +18,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 
-  <h1> To do List</h1>
+  
 
   <div class="container">
+    <h1> To do List</h1>
+
     <input type="text" id="input" placeholder="inserisci azione">    
     <input type="button"  value="aggiungi">
+    <input type="button" id="stamp" value ="versione stampabile">
     <ul></ul>
     
   </div>
@@ -33,32 +36,37 @@
     $(document).ready(function () {
       $('#input').change(function () {
         var input = $(this).val();
-        $('ul').append('<li>' + input + '<i class="fas fa-trash"></i> <i class="fas fa-pen"></i><i class="fas fa-check"></i></li>');
+        $('ul').append('<li>' + input + ' <i class="fas fa-trash"></i> <i class="fas fa-pen"></i> <i class="fas fa-check"></i></li> ');
         $(this).val('');        
-      })
+      });
 
       $('ul').on('click', '.fa-trash', function () {
         $(this).parent('li').fadeOut(200);
-      })
+      });
       
       
 
       $('ul').on('click', '.fa-pen', function () {
         $(this).parent('li').append($('<input type = "text" id="text">' ));
+        
         $('#text').on('keyup', function(event){
           if(event.keyCode==13 )  {
           var testo= $('#text').val();
-         $(this).parent('li').text(testo);     
+         $(this).parent('li').text(testo);
+         
+         $('ul').html('<li>' + testo + ' <i class="fas fa-trash"></i> <i class="fas fa-pen"></i><i class="fas fa-check"></i></li> ');        
 
         }
-        })  
-       
-        $('ul').on('click', '.fa-check', function(){
-          $(this).parent('li').toggleClass(checked)
-        })
-
-        
+        });          
       })
+
+
+      
+      $('ul').on('click', '.fa-check', function () {
+        $(this).parent('li').toggleClass('checked');
+      });
+
+
 
       
 

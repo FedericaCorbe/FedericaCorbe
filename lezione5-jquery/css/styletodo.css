@@ -1,25 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 
+body{
+    background-image: linear-gradient(120deg,#487eb0,#fbc531); 
+    min-height: 100vh; 
+}
+
+.container{
+    
+    /* min-height: 100vh; 
+    height: 450px;
+    width: 400px;  
+    background: white;
+    background-image: linear-gradient(120deg,#487eb0,#fbc531);
+    border-radius: 5px;
+    padding: 10px;
+    overflow-y: auto; */
+
+    max-width: 800px;
+    margin: auto;
+    padding: 10px ;
+}
+
+#input{
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    background: rgba(102, 102, 102, 0.974);
+    color: white;
+    padding: 0 10px;
+    margin: 15px 0;
+
+}
+
+#input::placeholder{
+    color: #bbb ;
+}
+
+ul li{
+    background: #eee ;
+    color: #333 ;
+    height: 40px;
+    border-radius: 50px;
+    margin: 10px 0;
+    padding: 10px;
+    position: relative;
+}
 
 
-ul .fa-trash, .fa.pen{ 
+ul .fa-trash, .fa.pen, .fa-check{ 
     position: absolute;
     cursor: pointer;
 }
 
-ul .fa-trash{
-    right: 20px;
-    color:red;
-}
-
-ul .fa-pen{   
-    color: blue;
-}
-
 ul .fa-check{
+    right: 40px;
     color: green;
 
 }
-.checked {
-    text-decoration: line-through; 
+
+ul .checked{
+    text-decoration: line-through;
 }
+
+
+ul .fa-trash{
+   right: 20px;
+   color:red;
+}
+
+ul .fa-pen{   
+    left: 20px;
+    color: blue;
+}
+
+
