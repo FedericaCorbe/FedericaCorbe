@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id=monster></div>
+    <script>
+        const url="https://www.dnd5eapi.co/api/monsters/"
+        var listaM = document.querySelector('#monster')
+        var httpXML = new XMLHttpRequest()
+
+        httpXML.open("GET", url, true)
+        httpXML.send()
+        httpXML.onreadystatechange = function() {
+            if(this.status == 200 && this.readyState ==4) {
+                console.log(httpXML.responseText);
+                var mioObj = JSON.parse(this.responseText)
+                console.log(mioObj);
+
+                for(var i =0; i<mioObj.results.length; i++) {
+                    var urlM = url + mioObj.results[i].index
+                    listaM.innerHTML +='<h3><a href=a"#" id="' + mioObj.results[i].name+ '">' + mioObj.results[i].name + '</a></h3>'         
+                   
+                    $('a').on('click', function() {dettagli(urlM)})
+                }
+            }
+        }
+
+        function dettagli(url) {
+            var xhrDet = new XMLHttpRequest()
+
+           xhrDet.open("GET", url, true)
+           xhrDet.send()
+           xhrDet.onreadystatechange = function() {
+            if(this.status == 200 && this.readyState == 4) {
+                console.log(httpDet.responseText);
+                var mioObj = JSON.parse(this.responseText)
+                console.log(mioObj);
+
+                // for(var i =0; i<mio.result.lenght; i++) {
+                //     listaM.innerHTML += '<h3><a href ="#" onclick="dettagli("'  + mioObj.result[i].url + '")">' + mioObj.result[i].name + '</a></h3>'
+                // }
+            }
+        }
+
+        }
+        
+
+
+
+
+
+    </script>
+</body>
+</html>
